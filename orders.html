@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Orders — Velora</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css?v=2" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="index.html">velora<span>.</span></a>
+      <nav class="nav-links" aria-label="Main">
+        <a href="index.html">Shop</a>
+        <a href="orders.html" aria-current="page">Orders</a>
+      </nav>
+      <button class="cart-btn" id="open-cart" aria-label="Open cart">
+        🛒 <span class="badge" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <main class="container orders-page" id="orders-main">
+    <div class="page-head">
+      <div>
+        <h1>Your Orders</h1>
+        <div class="stats" id="orders-stats">
+          <div class="stat"><span>Orders</span><strong id="stat-count">0</strong></div>
+          <div class="stat"><span>Lifetime spent</span><strong id="stat-spent">₹0</strong></div>
+        </div>
+      </div>
+      <button class="btn-ghost danger" id="clear-history" type="button">🗑 Clear history</button>
+    </div>
+
+    <div class="confirm-bar" id="confirm-bar" role="alertdialog" aria-labelledby="confirm-text" hidden>
+      <p id="confirm-text">Delete your entire order history? This can't be undone.</p>
+      <div class="confirm-actions">
+        <button class="btn-ghost" id="confirm-cancel" type="button">Cancel</button>
+        <button class="btn-danger" id="confirm-yes" type="button">Yes, clear history</button>
+      </div>
+    </div>
+
+    <div class="toolbar orders-toolbar" id="orders-toolbar">
+      <div class="chips" id="status-chips" role="group" aria-label="Filter by status"></div>
+      <div class="search order-search">
+        <span aria-hidden="true">🔍</span>
+        <input id="order-search" type="search" placeholder="Search order ID or item…" aria-label="Search orders by ID or item name" autocomplete="off" />
+      </div>
+    </div>
+    <p class="result-count" id="orders-count" aria-live="polite"></p>
+
+    <div class="orders-list" id="orders-list"></div>
+
+    <div class="empty-state" id="orders-empty" hidden>
+      <svg viewBox="0 0 200 160" width="200" height="160" aria-hidden="true" focusable="false">
+        <defs>
+          <linearGradient id="empty-g" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#c7d2fe" />
+            <stop offset="1" stop-color="#ddd6fe" />
+          </linearGradient>
+        </defs>
+        <ellipse cx="100" cy="146" rx="62" ry="8" fill="#14142b" opacity="0.07" />
+        <path d="M44 62 100 34l56 28v62l-56 28-56-28z" fill="url(#empty-g)" />
+        <path d="M44 62 100 90l56-28M100 90v62" fill="none" stroke="#5b4bff" stroke-width="3" stroke-linejoin="round" opacity="0.55" />
+        <path d="M72 48l56 28" stroke="#5b4bff" stroke-width="3" opacity="0.4" />
+        <circle cx="152" cy="40" r="6" fill="#f9a8d4" />
+        <circle cx="42" cy="34" r="4" fill="#86efac" />
+        <circle cx="166" cy="96" r="3" fill="#fcd34d" />
+      </svg>
+      <h2>No orders yet</h2>
+      <p>When you check out, your orders will show up here so you can track and reorder them.</p>
+      <a class="cta" href="index.html">Start shopping</a>
+    </div>
+
+    <div class="empty-state compact" id="orders-nomatch" hidden>
+      <div class="big-emoji" aria-hidden="true">🔎</div>
+      <h2>No orders match</h2>
+      <p>Try a different status or search term.</p>
+      <button class="btn-ghost" id="reset-filters" type="button">Reset filters</button>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 Velora · A demo store built with Claude</div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Shopping cart">
+    <div class="drawer-head">
+      <h2>Your Cart</h2>
+      <button id="close-cart" aria-label="Close cart">✕</button>
+    </div>
+    <div class="drawer-body" id="cart-items"></div>
+    <div class="drawer-foot">
+      <div class="row"><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+      <div class="row muted"><span>Shipping</span><span id="shipping">—</span></div>
+      <div class="row total"><span>Total</span><strong id="total">₹0</strong></div>
+      <button class="checkout" id="checkout">Checkout</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+
+  <script src="products.js?v=2"></script>
+  <script src="cart.js?v=2"></script>
+  <script src="orders.js?v=2"></script>
+</body>
+</html>
