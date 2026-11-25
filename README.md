@@ -21,5 +21,4 @@ velora/
 ├── style.css      # styles
 ├── products.js    # product catalog (edit to add products)
 ├── script.js      # filtering, cart and checkout logic
-└── .github/workflows/pages.yml   # auto-deploy to GitHub Pages
 ```
