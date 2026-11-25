@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Velora — Modern Lifestyle Store</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="nav">
+    <div class="container nav-inner">
+      <a class="logo" href="#">velora<span>.</span></a>
+      <div class="search">
+        <span>🔍</span>
+        <input id="search" type="search" placeholder="Search products…" autocomplete="off" />
+      </div>
+      <button class="cart-btn" id="open-cart" aria-label="Open cart">
+        🛒 <span class="badge" id="cart-count">0</span>
+      </button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <span class="pill">New season · Free shipping over ₹999</span>
+        <h1>Gear that makes every day feel <em>premium.</em></h1>
+        <p>Thoughtfully designed tech, home and lifestyle essentials. Curated by humans, loved by thousands.</p>
+        <a href="#shop" class="cta">Shop the collection →</a>
+      </div>
+      <div class="hero-art">
+        <div class="orb o1">🎧</div>
+        <div class="orb o2">⌚</div>
+        <div class="orb o3">🪴</div>
+      </div>
+    </div>
+  </section>
+
+  <main class="container" id="shop">
+    <div class="toolbar">
+      <div class="chips" id="chips"></div>
+      <select id="sort" aria-label="Sort products">
+        <option value="featured">Featured</option>
+        <option value="low">Price: Low to High</option>
+        <option value="high">Price: High to Low</option>
+        <option value="rating">Top Rated</option>
+      </select>
+    </div>
+    <p class="result-count" id="result-count"></p>
+    <div class="grid" id="grid"></div>
+    <p class="no-results" id="no-results" hidden>No products match your search 😕</p>
+  </main>
+
+  <footer class="footer">
+    <div class="container">© 2026 Velora · A demo store built with Claude</div>
+  </footer>
+
+  <div class="overlay" id="overlay"></div>
+  <aside class="drawer" id="drawer" aria-label="Shopping cart">
+    <div class="drawer-head">
+      <h2>Your Cart</h2>
+      <button id="close-cart" aria-label="Close cart">✕</button>
+    </div>
+    <div class="drawer-body" id="cart-items"></div>
+    <div class="drawer-foot">
+      <div class="row"><span>Subtotal</span><strong id="subtotal">₹0</strong></div>
+      <div class="row muted"><span>Shipping</span><span id="shipping">—</span></div>
+      <div class="row total"><span>Total</span><strong id="total">₹0</strong></div>
+      <button class="checkout" id="checkout">Checkout</button>
+    </div>
+  </aside>
+
+  <div class="toast" id="toast"></div>
+
+  <script src="products.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
